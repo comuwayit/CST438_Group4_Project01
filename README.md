@@ -10,4 +10,6 @@ API used: Internet Archive's Open Library
   https://openlibrary.org/dev/docs/api/books
   This is a free API with comprehensive lists of book titles, authors, and other information;
   
-Useful Resources:
+Useful Resources (WIP):
+  Android doumentation : https://developer.android.com/guide
+  GeeksForGeeks : https://www.geeksforgeeks.org/
