@@ -1,5 +1,6 @@
 package com.daclink.drew.sp22.cst438_project01_starter;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -17,60 +18,74 @@ import com.daclink.drew.sp22.cst438_project01_starter.databinding.ActivityMainBi
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+    TextView userTextView;
+
+    Button returnBtn;
+
+    String userName = null;
+    Button logoutButton;
+    Button viewBooksButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        logoutButton = (Button) findViewById(R.id.logoutButton);
+        viewBooksButton = (Button) findViewById(R.id.viewBooksButton);
 
-        setSupportActionBar(binding.toolbar);
+//        if (getIntent().hasExtra("com.example.mystoreapp.USER")) {
+//            userName = getIntent().getExtras().getString("com.example.mystoreapp.USER");
+//            logoutButton.setText(userName + " Logout");
+//            DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
+//            dataBaseHelper.addLoginUser(userName);
+//        }
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+//        Button userMenuBtn = (Button) findViewById(R.id.userMenuBtn);
+//        if (userName.equals("admin2")) {
+//            userMenuBtn.setVisibility(View.VISIBLE);
+//        } else {
+//            userMenuBtn.setVisibility(View.INVISIBLE);
+//        }
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
+        // Attempt to launch another activity
+//        userMenuBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent startIntent = new Intent(getApplicationContext(), AdminActivity.class);
+//
+//                // show how to pass information
+//                startActivity(startIntent);
+//            }
+//        });
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+//        logoutButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //lets go
+//                finish();
+//            }
+//        });
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+//        bookViewButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //lets go to the store
+//                Intent startIntent = new Intent(getApplicationContext(), StoreActivity.class);
+//
+//                // Pass info to MainActivity
+//                startIntent.putExtra("com.example.mystoreapp.USER", userName);
+//
+//
+//                // show how to pass information
+//                startActivity(startIntent);
+//            }
+//        });
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
     }
 }
