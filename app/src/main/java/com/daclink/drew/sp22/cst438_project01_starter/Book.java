@@ -1,11 +1,16 @@
 package com.daclink.drew.sp22.cst438_project01_starter;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.Objects;
 
-
+@Entity(tableName = BookTrackerDB.BOOK_TABLE)
 public class Book {
-    private String title;
+    @PrimaryKey(autoGenerate = true)
     private Integer idNumber;
+
+    private String title;
     private String genre;
 
     public Book(){
