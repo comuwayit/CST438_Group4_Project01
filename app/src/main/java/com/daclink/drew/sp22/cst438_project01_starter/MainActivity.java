@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
 //            dataBaseHelper.addLoginUser(userName);
 //        }
 
-//        Button userMenuBtn = (Button) findViewById(R.id.userMenuBtn);
-//        if (userName.equals("admin2")) {
-//            userMenuBtn.setVisibility(View.VISIBLE);
-//        } else {
-//            userMenuBtn.setVisibility(View.INVISIBLE);
-//        }
+        Button userMenuBtn = (Button) findViewById(R.id.userMenuBtn);
+        if (userName.equals("admin2")) {
+            userMenuBtn.setVisibility(View.VISIBLE);
+        } else {
+            userMenuBtn.setVisibility(View.INVISIBLE);
+        }
 
         // Attempt to launch another activity
 //        userMenuBtn.setOnClickListener(new View.OnClickListener() {
@@ -64,28 +64,28 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-//        logoutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //lets go
-//                finish();
-//            }
-//        });
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //lets go
+                finish();
+            }
+        });
 
-//        bookViewButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //lets go to the store
-//                Intent startIntent = new Intent(getApplicationContext(), StoreActivity.class);
-//
-//                // Pass info to MainActivity
-//                startIntent.putExtra("com.example.mystoreapp.USER", userName);
-//
-//
-//                // show how to pass information
-//                startActivity(startIntent);
-//            }
-//        });
+        viewBooksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //lets go to the store
+                Intent startIntent = new Intent(getApplicationContext(), FirstFragment.class);
+
+                // Pass info to MainActivity
+                startIntent.putExtra("com.example.mystoreapp.USER", userName);
+
+
+                // show how to pass information
+                startActivity(startIntent);
+            }
+        });
 
     }
 }
