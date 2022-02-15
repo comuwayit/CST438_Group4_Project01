@@ -14,23 +14,24 @@ import com.daclink.drew.sp22.cst438_project01_starter.Util.Util;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookSearchAdapter extends RecyclerView.Adapter<BookSearchAdapter>.BookSearchResultsHolder {
+public class BookSearchAdapter extends RecyclerView.Adapter<BookSearchAdapter.BookSearchResultsHolder> {
     private List<Volume> results = new ArrayList<>();
 
     @NonNull
     @Override
-    public BookSearchResultHolder onCreateViewHolder(NonNull ViewGroup parent, int viewType){
+    public BookSearchResultsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.book_item, parent, false);
 
-        return new BookSearchResultHolder(itemView);
+        return new BookSearchResultsHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BookSearchResultHolder holder, int position){
+    public void onBindViewHolder(@NonNull BookSearchResultsHolder holder, int position) {
         Volume volume = results.get(position);
 
         holder.titleTextView.setText(volume.getVolumeInfo().getTitle());
@@ -52,28 +53,23 @@ public class BookSearchAdapter extends RecyclerView.Adapter<BookSearchAdapter>.B
         }
     }
 
-
     @Override
     public int getItemCount() {
         return results.size();
     }
-
-
 
     public void setResults(List<Volume> results) {
         this.results = results;
         notifyDataSetChanged();
     }
 
-
-
-    class BookSearchResultHolder extends RecyclerView.ViewHolder{
+    class BookSearchResultsHolder extends RecyclerView.ViewHolder{
         private TextView titleTextView;
         private TextView authorsTextView;
         private TextView publishedDateTextView;
         private ImageView smallThumbnailImageView;
 
-        public BookSearchResultHolder(@NonNull View itemView){
+        public BookSearchResultsHolder(@NonNull View itemView){
             super(itemView);
 
             titleTextView = itemView.findViewById(R.id.book_item_title);
