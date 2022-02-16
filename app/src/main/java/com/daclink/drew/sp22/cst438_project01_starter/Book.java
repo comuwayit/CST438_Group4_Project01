@@ -8,53 +8,62 @@ import java.util.Objects;
 @Entity(tableName = BookTrackerDB.BOOK_TABLE)
 public class Book {
     @PrimaryKey(autoGenerate = true)
-    private Integer idNumber;
+    private int idNumber;
 
-    private String title;
-    private String genre;
+    private String mAuthor;
+    private String mTitle;
+    private String mGenre;
 
     public Book(){
-        title = "Hello World";
+        mTitle = "Hello World";
         idNumber = 69420;
-        genre = "Comedy";
+        mGenre = "Comedy";
     }
 
-    public Book(String title, Integer idNumber, String genre){
-        this.title = title;
+    public Book(String mTitle, int idNumber, String mGenre){
+        this.mTitle = mTitle;
         this.idNumber = idNumber;
-        this.genre = genre;
+        this.mGenre = mGenre;
+    }
+
+    public String getAuthor() {
+        return mAuthor;
+    }
+
+    public void setAuthor(String mAuthor) {
+        this.mAuthor = mAuthor;
     }
 
     public String getTitle() {
-        return title;
+        return mTitle;
     }
 
-    public Integer getIdNumber() {
+    public int getIdNumber() {
         return idNumber;
     }
 
     public String getGenre() {
-        return genre;
+        return mGenre;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String mTitle) {
+        this.mTitle = mTitle;
     }
 
-    public void setIdNumber(Integer idNumber) {
+    public void setIdNumber(int idNumber) {
         this.idNumber = idNumber;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenre(String mGenre) {
+        this.mGenre = mGenre;
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "title='" + title + '\'' +
+                "mTitle='" + mTitle + '\'' +
                 ", idNumber=" + idNumber +
-                ", genre='" + genre + '\'' +
+                ", mGenre='" + mGenre + '\'' +
                 '}';
     }
 
@@ -63,11 +72,11 @@ public class Book {
         if (this == o) return true;
         if (!(o instanceof Book)) return false;
         Book book = (Book) o;
-        return Objects.equals(title, book.title) && Objects.equals(idNumber, book.idNumber) && Objects.equals(genre, book.genre);
+        return Objects.equals(mTitle, book.mTitle) && Objects.equals(idNumber, book.idNumber) && Objects.equals(mGenre, book.mGenre);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, idNumber, genre);
+        return Objects.hash(mTitle, idNumber, mGenre);
     }
 }

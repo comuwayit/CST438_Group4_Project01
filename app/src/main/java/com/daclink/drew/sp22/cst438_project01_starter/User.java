@@ -2,7 +2,7 @@ package com.daclink.drew.sp22.cst438_project01_starter;
 
 import  androidx.room.Entity;
 import androidx.room.PrimaryKey;
-@Entity(tableName = UserDataBase.USER_TABLE)
+@Entity(tableName = AppDataBase.USER_TABLE)
 public class User {
 
     @PrimaryKey(autoGenerate = true)
