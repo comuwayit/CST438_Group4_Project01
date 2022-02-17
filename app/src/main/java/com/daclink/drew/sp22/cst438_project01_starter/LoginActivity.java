@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public static final String EXTRA_IS_ADMIN = "com.daclink.drew.sp22.cst438_project01_starter.EXTRA_IS_ADMIN";
 
-    private Button mLoginButton, mCreateAccountButton, mToMainButton;
+    private Button mLoginButton, mCreateAccountButton;
     private EditText mUserText, mPasswordText;
 
     private UserDAO userDAO;
@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordText = findViewById(R.id.editTextPassword);
 
         mLoginButton = findViewById(R.id.buttonLogin);
-        mToMainButton = findViewById(R.id.buttonToMain); //Temporary
+//        mToMainButton = findViewById(R.id.buttonToMain); //Temporary
         mCreateAccountButton = findViewById(R.id.buttonCreateAccount);
 
         userDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DB_NAME)
@@ -51,13 +51,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        mToMainButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
+//        mToMainButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         mCreateAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
