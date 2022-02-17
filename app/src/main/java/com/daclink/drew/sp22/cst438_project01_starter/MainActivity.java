@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         logoutButton = (Button) findViewById(R.id.logoutButton);
         viewBooksButton = (Button) findViewById(R.id.viewBooksButton);
-        Button userMenuBtn = (Button) findViewById(R.id.editUsersBtn);
+        userMenuBtn = (Button) findViewById(R.id.editUsersBtn);
       
         Intent i = getIntent();
         Boolean isAdmin = i.getBooleanExtra(LoginActivity.EXTRA_IS_ADMIN, false);
