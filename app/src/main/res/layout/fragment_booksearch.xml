@@ -9,17 +9,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Book Search"
-        android:textSize="24sp"/>
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragment_booksearch_keyword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Keyword"
-            android:id="@+id/fragment_booksearch_keyword" />
+            android:hint="Title" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

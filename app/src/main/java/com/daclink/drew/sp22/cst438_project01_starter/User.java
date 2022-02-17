@@ -16,8 +16,8 @@ public class User {
     private String mPassword;
 
 
-    private ArrayList<Book> mWishList;
-    private ArrayList<Book> mBookLog;
+//    private ArrayList<Book> mWishList;
+//    private ArrayList<Book> mBookLog;
 
     public User(String mUsername, String mPassword){
         this.mUsername = mUsername;
@@ -45,21 +45,21 @@ public class User {
         this.mUserId = mUserId;
     }
 
-    public ArrayList<Book> getmWishList() {
-        return mWishList;
-    }
+//    public ArrayList<Book> getmWishList() {
+//        return mWishList;
+//    }
 
-    public void setmWishList(ArrayList<Book> mWishList) {
-        this.mWishList = mWishList;
-    }
+//    public void setmWishList(ArrayList<Book> mWishList) {
+//        this.mWishList = mWishList;
+//    }
 
-    public ArrayList<Book> getmBookLog() {
-        return mBookLog;
-    }
-
-    public void setmBookLog(ArrayList<Book> mBookLog) {
-        this.mBookLog = mBookLog;
-    }
+//    public ArrayList<Book> getmBookLog() {
+//        return mBookLog;
+//    }
+//
+//    public void setmBookLog(ArrayList<Book> mBookLog) {
+//        this.mBookLog = mBookLog;
+//    }
 
     @Override
     public String toString() {
