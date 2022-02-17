@@ -3,21 +3,10 @@ package com.daclink.drew.sp22.cst438_project01_starter;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.daclink.drew.sp22.cst438_project01_starter.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -25,11 +14,11 @@ public class MainActivity extends AppCompatActivity {
 
     TextView userTextView;
 
-    Button returnBtn;
 
     String userName = null;
     Button logoutButton;
     Button viewBooksButton;
+    Button userMenuBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +27,37 @@ public class MainActivity extends AppCompatActivity {
 
         logoutButton = (Button) findViewById(R.id.logoutButton);
         viewBooksButton = (Button) findViewById(R.id.viewBooksButton);
-
-//        if (getIntent().hasExtra("com.example.mystoreapp.USER")) {
-//            userName = getIntent().getExtras().getString("com.example.mystoreapp.USER");
+        userMenuBtn = (Button) findViewById(R.id.editUsersBtn);
+//        if (getIntent().hasExtra("com.daclink.drew.sp22.cst438_project01_starter")) {
+//            userName = getIntent().getExtras().getString("com.daclink.drew.sp22.cst438_project01_starter");
 //            logoutButton.setText(userName + " Logout");
-//            DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
+//            BookTrackerDB dataBaseHelper = new BookTrackerDB() {
+//                @Override
+//                public BookDAO book() {
+//                    return null;
+//                }
+//
+//                @NonNull
+//                @Override
+//                protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration config) {
+//                    return null;
+//                }
+//
+//                @NonNull
+//                @Override
+//                protected InvalidationTracker createInvalidationTracker() {
+//                    return null;
+//                }
+//
+//                @Override
+//                public void clearAllTables() {
+//
+//                }
+//            };
 //            dataBaseHelper.addLoginUser(userName);
 //        }
 
-//        Button userMenuBtn = (Button) findViewById(R.id.userMenuBtn);
+//        userMenuBtn = (Button) findViewById(R.id.userMenuBtn);
 //        if (userName.equals("admin2")) {
 //            userMenuBtn.setVisibility(View.VISIBLE);
 //        } else {
@@ -90,7 +101,15 @@ public class MainActivity extends AppCompatActivity {
         viewBooksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), FirstFragment.class);
+                Intent intent = new Intent(getApplicationContext(), ViewBooksActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        userMenuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
                 startActivity(intent);
             }
         });
