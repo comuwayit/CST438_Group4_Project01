@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
 //            dataBaseHelper.addLoginUser(userName);
 //        }
 
-        Button userMenuBtn = (Button) findViewById(R.id.userMenuBtn);
-        if (userName.equals("admin2")) {
-            userMenuBtn.setVisibility(View.VISIBLE);
-        } else {
-            userMenuBtn.setVisibility(View.INVISIBLE);
-        }
+//        Button userMenuBtn = (Button) findViewById(R.id.userMenuBtn);
+//        if (userName.equals("admin2")) {
+//            userMenuBtn.setVisibility(View.VISIBLE);
+//        } else {
+//            userMenuBtn.setVisibility(View.INVISIBLE);
+//        }
 
         // Attempt to launch another activity
 //        userMenuBtn.setOnClickListener(new View.OnClickListener() {
