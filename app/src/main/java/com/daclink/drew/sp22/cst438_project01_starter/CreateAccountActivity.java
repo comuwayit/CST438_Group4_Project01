@@ -53,6 +53,8 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         if (userNameText.getText().toString().isEmpty() || passwordText.getText().toString().isEmpty()) {
             Toast.makeText(CreateAccountActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+        } else if (userNameText.getText().toString().equals("admin")) {
+            Toast.makeText(CreateAccountActivity.this, "Invalid Username", Toast.LENGTH_SHORT).show();
         } else {
             userDAO.insert(user);
             Toast.makeText(CreateAccountActivity.this, "Account successfully created", Toast.LENGTH_SHORT).show();

@@ -17,8 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
     String userName = null;
     private Button logoutButton;
-    private Button viewBooksButton;
+    private Button searchBooksButton;
     private Button userMenuBtn;
+    private Button wishlistBtn;
+    private Button bookLogBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +28,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         logoutButton = (Button) findViewById(R.id.logoutButton);
-        viewBooksButton = (Button) findViewById(R.id.viewBooksButton);
-        Button userMenuBtn = (Button) findViewById(R.id.editUsersBtn);
+        searchBooksButton = (Button) findViewById(R.id.searchBooksButton);
+        userMenuBtn = (Button) findViewById(R.id.editUsersBtn);
+        wishlistBtn = findViewById(R.id.wishlistButton);
+        bookLogBtn = findViewById(R.id.bookLogButton);
       
         Intent i = getIntent();
         Boolean isAdmin = i.getBooleanExtra(LoginActivity.EXTRA_IS_ADMIN, false);
-
-//         userMenuBtn = (Button) findViewById(R.id.editUsersBtn);
-//        if (getIntent().hasExtra("com.daclink.drew.sp22.cst438_project01_starter")) {
-//            userName = getIntent().getExtras().getString("com.daclink.drew.sp22.cst438_project01_starter");
 
 //        if (getIntent().hasExtra("com.example.mystoreapp.USER")) {
 //            userName = getIntent().getExtras().getString("com.example.mystoreapp.USER");
@@ -105,10 +105,26 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        viewBooksButton.setOnClickListener(new View.OnClickListener() {
+        searchBooksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ViewBooksActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        wishlistBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), WishlistActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        bookLogBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BookLogActivity.class);
                 startActivity(intent);
             }
         });
