@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class VolumeResonse {
+public class VolumeResponse {
     @SerializedName("kind")
     @Expose
     private String kind;

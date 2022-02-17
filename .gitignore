@@ -14,6 +14,9 @@
 .cxx
 local.properties
 
+#API Ignore
+.JavaAPIKEy.java
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,android,androidstudio,jetbrains+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,android,androidstudio,jetbrains+all
@@ -245,10 +248,12 @@ proguard/
 *~
 *.swp
 
+
 # Keystore files
 
 # Google Services (e.g. APIs or Firebase)
 # google-services.json
+
 
 # Android Patch
 
