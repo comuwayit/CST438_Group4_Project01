@@ -10,6 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CST438_Project01_Starter">
         <activity
+            android:name=".ViewBooksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity"
+            android:exported="false"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/Theme.CST438_Project01_Starter.NoActionBar" />
+        <activity
             android:name=".CreateAccountActivity"
             android:exported="false" />
         <activity
