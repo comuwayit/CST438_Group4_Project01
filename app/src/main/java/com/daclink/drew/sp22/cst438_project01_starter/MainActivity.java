@@ -16,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     String userName = null;
-    Button logoutButton;
-    Button viewBooksButton;
-    Button userMenuBtn;
+    private Button logoutButton;
+    private Button viewBooksButton;
+    private Button userMenuBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         logoutButton = (Button) findViewById(R.id.logoutButton);
         viewBooksButton = (Button) findViewById(R.id.viewBooksButton);
+        Button userMenuBtn = (Button) findViewById(R.id.editUsersBtn);
       
         Intent i = getIntent();
         Boolean isAdmin = i.getBooleanExtra(LoginActivity.EXTRA_IS_ADMIN, false);
@@ -64,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
 //            dataBaseHelper.addLoginUser(userName);
 //        }
 
-        Button userMenuBtn = (Button) findViewById(R.id.userMenuBtn);
         if (isAdmin) {
             userMenuBtn.setVisibility(View.VISIBLE);
         } else {
