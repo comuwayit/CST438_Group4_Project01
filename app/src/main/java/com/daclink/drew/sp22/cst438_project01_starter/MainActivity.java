@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         logoutButton = (Button) findViewById(R.id.logoutButton);
         viewBooksButton = (Button) findViewById(R.id.viewBooksButton);
 
+        Intent i = getIntent();
+        Boolean isAdmin = i.getBooleanExtra(LoginActivity.EXTRA_IS_ADMIN, false);
+
 //        if (getIntent().hasExtra("com.example.mystoreapp.USER")) {
 //            userName = getIntent().getExtras().getString("com.example.mystoreapp.USER");
 //            logoutButton.setText(userName + " Logout");
@@ -46,12 +49,12 @@ public class MainActivity extends AppCompatActivity {
 //            dataBaseHelper.addLoginUser(userName);
 //        }
 
-//        Button userMenuBtn = (Button) findViewById(R.id.userMenuBtn);
-//        if (userName.equals("admin2")) {
-//            userMenuBtn.setVisibility(View.VISIBLE);
-//        } else {
-//            userMenuBtn.setVisibility(View.INVISIBLE);
-//        }
+        Button userMenuBtn = (Button) findViewById(R.id.userMenuBtn);
+        if (isAdmin) {
+            userMenuBtn.setVisibility(View.VISIBLE);
+        } else {
+            userMenuBtn.setVisibility(View.INVISIBLE);
+        }
 
         // Attempt to launch another activity
 //        userMenuBtn.setOnClickListener(new View.OnClickListener() {

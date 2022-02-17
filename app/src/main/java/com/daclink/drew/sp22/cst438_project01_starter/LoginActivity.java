@@ -14,11 +14,16 @@ import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
+    public static final String EXTRA_IS_ADMIN = "com.daclink.drew.sp22.cst438_project01_starter.EXTRA_IS_ADMIN";
+
     private Button mLoginButton, mCreateAccountButton, mToMainButton;
     private EditText mUserText, mPasswordText;
 
     private UserDAO userDAO;
     private List<User> users;
+
+    String adminUsername = "admin";
+    String adminPassword = "admin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                System.out.println("-------BUTTON CLICKED------");
-//                Toast toast = Toast.makeText(getApplicationContext(), "User DB not yet implemented", Toast.LENGTH_SHORT);
-//                toast.show();
                 login();
             }
         });
@@ -68,7 +70,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private void login() {
         for (User u : users) {
-            if (mUserText.getText().toString().equals(u.getUsername()) && mPasswordText.getText().toString().equals(u.getPassword())) {
+            if (mUserText.getText().toString().equals(adminUsername) && mPasswordText.getText().toString().equals(adminPassword)) {
+                Toast.makeText(LoginActivity.this, "Admin mode entered", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra(EXTRA_IS_ADMIN, true);
+                startActivity(intent);
+                return;
+            }
+            else if (mUserText.getText().toString().equals(u.getUsername()) && mPasswordText.getText().toString().equals(u.getPassword())) {
                 Toast.makeText(LoginActivity.this, "Welcome back " + u.getUsername(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
