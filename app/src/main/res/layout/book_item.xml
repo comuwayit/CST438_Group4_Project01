@@ -16,10 +16,10 @@
 
         <ImageView
             android:id="@+id/book_item_smallThumbnail"
-            android:layout_width="80dp"
-            android:layout_height="100dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/book_item_rightLayout"/>
+            android:layout_width="54dp"
+            android:layout_height="58dp"
+            app:layout_constraintEnd_toStartOf="@id/book_item_rightLayout"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/book_item_rightLayout"

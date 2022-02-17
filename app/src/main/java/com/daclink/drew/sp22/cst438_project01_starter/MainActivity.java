@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         logoutButton = (Button) findViewById(R.id.logoutButton);
+        viewBooksButton = (Button) findViewById(R.id.viewBooksButton);
+        userMenuBtn = (Button) findViewById(R.id.editUsersBtn);
+
         searchBooksButton = (Button) findViewById(R.id.searchBooksButton);
         userMenuBtn = (Button) findViewById(R.id.editUsersBtn);
         wishlistBtn = findViewById(R.id.wishlistButton);
