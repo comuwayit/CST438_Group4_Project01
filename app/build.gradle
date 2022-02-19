@@ -13,6 +13,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -40,6 +41,7 @@ dependencies {
     implementation 'androidx.room:room-common:2.4.1'
     implementation 'androidx.room:room-runtime:2.4.1'
     testImplementation 'junit:junit:'
+    testImplementation 'com.android.support.test:runner:1.0.2'
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.testng:testng:6.9.6'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
