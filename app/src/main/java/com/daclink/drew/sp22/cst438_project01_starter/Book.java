@@ -18,12 +18,14 @@ public class Book {
         mTitle = "Hello World";
         idNumber = 69420;
         mGenre = "Comedy";
+        mAuthor = "Brandon Sanderson";
     }
 
-    public Book(String mTitle, int idNumber, String mGenre){
+    public Book(String mTitle, int idNumber, String mGenre, String mAuthor){
         this.mTitle = mTitle;
         this.idNumber = idNumber;
         this.mGenre = mGenre;
+        this.mAuthor = mAuthor;
     }
 
     public String getAuthor() {
@@ -57,6 +59,8 @@ public class Book {
     public void setGenre(String mGenre) {
         this.mGenre = mGenre;
     }
+
+
 
     @Override
     public String toString() {
