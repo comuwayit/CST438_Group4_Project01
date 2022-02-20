@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link booksearch#newInstance} factory method to
+ * Use the {@link bookSearch#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class booksearch extends Fragment {
+public class bookSearch extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class booksearch extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public booksearch() {
+    public bookSearch() {
         // Required empty public constructor
     }
 
@@ -37,8 +37,8 @@ public class booksearch extends Fragment {
      * @return A new instance of fragment booksearch.
      */
     // TODO: Rename and change types and number of parameters
-    public static booksearch newInstance(String param1, String param2) {
-        booksearch fragment = new booksearch();
+    public static bookSearch newInstance(String param1, String param2) {
+        bookSearch fragment = new bookSearch();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

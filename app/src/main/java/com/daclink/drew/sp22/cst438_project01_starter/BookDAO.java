@@ -27,4 +27,5 @@ public interface BookDAO {
 
     @Query("SELECT * FROM " + AppDataBase.BOOK_TABLE + " WHERE idNumber = :idNum")
     Book getBookbyBookId(int idNum);
+
 }
