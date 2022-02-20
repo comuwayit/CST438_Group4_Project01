@@ -19,6 +19,7 @@ public class DeleteAccountActivity extends AppCompatActivity {
 
     private UserDAO userDAO;
     private List<User> users;
+    private User toBeDeletedUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,8 @@ public class DeleteAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_delete_account);
 
         confirmButton = findViewById(R.id.buttonConfirmDeletion);
+        textUserName = findViewById(R.id.editTextConfirmUsername);
+        textPassword = findViewById(R.id.editTextConfirmPassword);
 
         userDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DB_NAME)
                 .allowMainThreadQueries()
@@ -37,30 +40,33 @@ public class DeleteAccountActivity extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                deleteAccount();
-                Toast.makeText(DeleteAccountActivity.this, "Feature not yet implemented", Toast.LENGTH_SHORT).show();
+                deleteAccount();
+//                Toast.makeText(DeleteAccountActivity.this, "Feature not yet implemented", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-//    void deleteAccount() {
-//        String adminUsername = "admin";
-//        String adminPassword = "admin";
-//        for (User u : users) {
-//            if (textUserName.getText().toString().isEmpty() || textPassword.getText().toString().isEmpty()) {
-//                Toast.makeText(DeleteAccountActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-//                return;
-//            } else if (textUserName.getText().toString().equals(adminUsername) && textPassword.getText().toString().equals(adminPassword)) {
-//                Toast.makeText(DeleteAccountActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-//                return;
-//            }
-//            else if (textUserName.getText().toString().equals(u.getUsername()) && textPassword.getText().toString().equals(u.getPassword())) {
-//                userDAO.delete(u);
-//                Toast.makeText(DeleteAccountActivity.this, "Account: " + u.getUsername() + " Deleted", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-//                return;
-//            }
-//        }
-//        Toast.makeText(DeleteAccountActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-//    }
+    void deleteAccount() {
+        String adminUsername = "admin";
+        String adminPassword = "admin";
+        if (textUserName.getText().toString().isEmpty() || textPassword.getText().toString().isEmpty()) {
+            Toast.makeText(DeleteAccountActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        for (User u : users) {
+            if (textUserName.getText().toString().equals(adminUsername) && textPassword.getText().toString().equals(adminPassword)) {
+                Toast.makeText(DeleteAccountActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            else if (textUserName.getText().toString().equals(u.getUsername()) && textPassword.getText().toString().equals(u.getPassword())) {
+                toBeDeletedUser = u;
+                userDAO.delete(toBeDeletedUser);
+                Toast.makeText(DeleteAccountActivity.this, "Account: " + u.getUsername() + " Deleted", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                return;
+            }
+        }
+        Toast.makeText(DeleteAccountActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+    }
 }
