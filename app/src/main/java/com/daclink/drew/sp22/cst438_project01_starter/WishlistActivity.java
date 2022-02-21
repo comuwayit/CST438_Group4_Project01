@@ -4,6 +4,7 @@ import androidx.annotation.ArrayRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,10 +12,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.daclink.drew.sp22.cst438_project01_starter.AppDataBase;
+import com.daclink.drew.sp22.cst438_project01_starter.User;
+import com.daclink.drew.sp22.cst438_project01_starter.Book;
+import com.daclink.drew.sp22.cst438_project01_starter.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class WishlistActivity extends AppCompatActivity {
+    public static final String USER_ID_KEY = "com.daclink.drew.sp22.cst438_project01_starter.USER_ID_KEY";
+
+    private User mUser;
+    private int mUserId;
 
     private ListView wlistView;
     private EditText titleText, authorText;
@@ -39,13 +49,17 @@ public class WishlistActivity extends AppCompatActivity {
                 .build()
                 .getDao();
 
-        books = bookDao.getAllBooks();
+           //Intent stuff branch
+//         mUserId = getIntent().getIntExtra(USER_ID_KEY, -1);
+//         mUser = bookDao.getUserbyUserId(mUserId);
 
-//        ArrayList<Book> bookList = new ArrayList<>();
-//        Book testBook = new Book("1984", "George Orwell", 0);
-//        bookList.add(testBook);
-//        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, bookList);
-//        wlistView.setAdapter(arrayAdapter);
+
+//         Intent i = getIntent();
+
+//         Boolean isAdmin = i.getBooleanExtra(MainActivity.USER_ID_KEY, false);
+
+//         ArrayList<Book> bookList = new ArrayList<>();
+//         books = bookDao.getAllBooks();
 
         refreshListView();
 

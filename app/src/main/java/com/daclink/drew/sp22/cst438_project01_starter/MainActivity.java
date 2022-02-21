@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String USER_ID_KEY = "com.daclink.drew.sp22.cst438_project01_starter.EXTRA_IS_ADMIN";
+
     TextView userTextView;
 
 
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         bookLogBtn = findViewById(R.id.bookLogButton);
       
         Intent i = getIntent();
-        Boolean isAdmin = i.getBooleanExtra(LoginActivity.EXTRA_IS_ADMIN, false);
+        Boolean isAdmin = i.getBooleanExtra(LoginActivity.USER_ID_KEY, false);
 
 //        if (getIntent().hasExtra("com.example.mystoreapp.USER")) {
 //            userName = getIntent().getExtras().getString("com.example.mystoreapp.USER");
