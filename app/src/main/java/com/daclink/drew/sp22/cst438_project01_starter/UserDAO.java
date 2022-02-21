@@ -28,4 +28,22 @@ public interface UserDAO {
     @Query("SELECT * FROM " + AppDataBase.USER_TABLE + " WHERE mUserId = :userid")
     User getUserbyUserId(int userid);
 
+    //BOOK DAO OPERATIONS
+    @Insert
+    void insert(Book... Books);
+
+    @Update
+    void update(Book... Books);
+
+    @Delete
+    void delete(Book Book);
+
+    @Query("SELECT * FROM " + AppDataBase.BOOK_TABLE + " ORDER BY mTitle ASC")
+    List<Book> getAllBooks();
+
+    @Query("SELECT * FROM " + AppDataBase.BOOK_TABLE + " WHERE mAuthor = :Author")
+    Book getBookByAuthor(String Author);
+
+    @Query("SELECT * FROM " + AppDataBase.BOOK_TABLE + " WHERE idNumber = :idNum")
+    Book getBookbyBookId(int idNum);
 }
