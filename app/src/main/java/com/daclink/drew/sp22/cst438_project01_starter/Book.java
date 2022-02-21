@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 import java.util.Objects;
 
-@Entity(tableName = BookTrackerDB.BOOK_TABLE)
+@Entity(tableName = AppDataBase.BOOK_TABLE)
 public class Book {
     @PrimaryKey(autoGenerate = true)
     private int idNumber;
@@ -13,19 +13,19 @@ public class Book {
     private String mAuthor;
     private String mTitle;
     private String mGenre;
+    private int mUserId;
 
     public Book(){
         mTitle = "Hello World";
-        idNumber = 69420;
         mGenre = "Comedy";
         mAuthor = "Brandon Sanderson";
     }
 
-    public Book(String mTitle, int idNumber, String mGenre, String mAuthor){
+    public Book(String mTitle, String mGenre, String mAuthor, int mUserId){
         this.mTitle = mTitle;
-        this.idNumber = idNumber;
         this.mGenre = mGenre;
         this.mAuthor = mAuthor;
+        this.mUserId = mUserId;
     }
 
     public String getAuthor() {
@@ -60,15 +60,18 @@ public class Book {
         this.mGenre = mGenre;
     }
 
+    public int getUserId() {
+        return mUserId;
+    }
+
+    public void setUserId(int userId) {
+        this.mUserId = userId;
+    }
 
 
     @Override
     public String toString() {
-        return "Book{" +
-                "mTitle='" + mTitle + '\'' +
-                ", idNumber=" + idNumber +
-                ", mGenre='" + mGenre + '\'' +
-                '}';
+        return mTitle + " by " + mAuthor;
     }
 
     @Override

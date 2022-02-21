@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         mCreateAccountButton = findViewById(R.id.buttonCreateAccount);
 
         userDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DB_NAME)
+                .fallbackToDestructiveMigration()
                 .allowMainThreadQueries()
                 .build()
                 .getDao();
