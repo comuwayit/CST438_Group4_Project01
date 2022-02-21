@@ -21,9 +21,10 @@ public class Book {
         mAuthor = "Brandon Sanderson";
     }
 
-    public Book(String mTitle, String mAuthor, int mUserId){
+    public Book(String mTitle, String mAuthor, String mGenre, int mUserId){
         this.mTitle = mTitle;
         this.mAuthor = mAuthor;
+        this.mGenre = mGenre;
         this.mUserId = mUserId;
     }
 
