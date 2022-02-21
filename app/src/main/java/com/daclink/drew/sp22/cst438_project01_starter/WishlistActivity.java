@@ -76,7 +76,7 @@ public class WishlistActivity extends AppCompatActivity {
     private void refreshListView() {
         ArrayList<Book> bookList = new ArrayList<>();
         for (Book b : books) {
-            if (b.getUserId() == userID) {
+            if (b.getUserId() == userID && b.getGenre().equals("wishlist")) {
                 bookList.add(b);
             }
         }
@@ -89,7 +89,7 @@ public class WishlistActivity extends AppCompatActivity {
             Toast.makeText(WishlistActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
-        Book b = new Book(titleText.getText().toString(), authorText.getText().toString(), userID);
+        Book b = new Book(titleText.getText().toString(), authorText.getText().toString(), "wishlist", userID);
         bookDao.insert(b);
         finish();
         startActivity(getIntent());

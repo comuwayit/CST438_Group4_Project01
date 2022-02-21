@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), BookLogActivity.class);
+                intent.putExtra(EXTRA_USER_ID, userID);
                 startActivity(intent);
             }
         });
