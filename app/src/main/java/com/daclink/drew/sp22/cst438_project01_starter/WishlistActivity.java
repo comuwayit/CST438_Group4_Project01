@@ -24,8 +24,8 @@ import java.util.List;
 public class WishlistActivity extends AppCompatActivity {
     public static final String EXTRA_USER_ID = "com.daclink.drew.sp22.cst438_project01_starter.EXTRA_USER_ID";
 
-    private User mUser;
-    private int mUserId;
+//    private User mUser;
+//    private int mUserId;
 
     private ListView wlistView;
     private EditText titleText, authorText;
@@ -60,9 +60,7 @@ public class WishlistActivity extends AppCompatActivity {
 
 //         Boolean isAdmin = i.getBooleanExtra(MainActivity.USER_ID_KEY, false);
 
-         ArrayList<Book> bookList = new ArrayList<>();
-         books = bookDao.getAllBooks();
-
+//        ArrayList<Book> bookList = new ArrayList<>();
 
         refreshListView();
 
