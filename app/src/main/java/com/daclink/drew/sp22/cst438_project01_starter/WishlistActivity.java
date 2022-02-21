@@ -54,8 +54,15 @@ public class WishlistActivity extends AppCompatActivity {
 
         books = bookDao.getAllBooks();
 
+
         Intent i = getIntent();
         userID = i.getIntExtra(MainActivity.EXTRA_USER_ID, -10);
+
+//         Boolean isAdmin = i.getBooleanExtra(MainActivity.USER_ID_KEY, false);
+
+         ArrayList<Book> bookList = new ArrayList<>();
+         books = bookDao.getAllBooks();
+
 
         refreshListView();
 
