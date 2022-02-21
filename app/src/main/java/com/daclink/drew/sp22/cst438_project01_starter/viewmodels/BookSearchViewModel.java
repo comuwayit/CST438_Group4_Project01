@@ -14,7 +14,7 @@ import com.daclink.drew.sp22.cst438_project01_starter.repository.BookRepository;
 public class BookSearchViewModel extends AndroidViewModel {
     private BookRepository bookRepository;
     private LiveData<VolumeResponse> volumesResponseLiveData;
-    private JavaAPIKey APIKey;
+    private JavaAPIKey APIKey = new JavaAPIKey();
 
     public BookSearchViewModel(@NonNull Application application) {
         super(application);

@@ -58,8 +58,8 @@ public class WishlistActivity extends AppCompatActivity {
 
 //         Boolean isAdmin = i.getBooleanExtra(MainActivity.USER_ID_KEY, false);
 
-//         ArrayList<Book> bookList = new ArrayList<>();
-//         books = bookDao.getAllBooks();
+         ArrayList<Book> bookList = new ArrayList<>();
+         books = bookDao.getAllBooks();
 
         refreshListView();
 
