@@ -6,4 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".EditUserActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/userNameButton"
+        app:layout_constraintStart_toStartOf="@+id/userNameButton"
+        tools:layout_editor_absoluteY="187dp">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/userNameButton"
+        android:layout_width="361dp"
+        android:layout_height="55dp"
+        android:hint="username to delete"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
