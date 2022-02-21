@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String USER_ID_KEY = "com.daclink.drew.sp22.cst438_project01_starter.EXTRA_IS_ADMIN";
+    public static final String EXTRA_USER_ID = "com.daclink.drew.sp22.cst438_project01_starter.EXTRA_USER_ID";
 
     TextView userTextView;
 
@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private Button userMenuBtn;
     private Button wishlistBtn;
     private Button bookLogBtn;
+
+    private int userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         bookLogBtn = findViewById(R.id.bookLogButton);
       
         Intent i = getIntent();
-        Boolean isAdmin = i.getBooleanExtra(LoginActivity.USER_ID_KEY, false);
+        Boolean isAdmin = i.getBooleanExtra(LoginActivity.EXTRA_IS_ADMIN, false);
+        userID = i.getIntExtra(LoginActivity.EXTRA_USER_ID, -10);
 
 //        if (getIntent().hasExtra("com.example.mystoreapp.USER")) {
 //            userName = getIntent().getExtras().getString("com.example.mystoreapp.USER");
@@ -123,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), WishlistActivity.class);
+                intent.putExtra(EXTRA_USER_ID, userID);
                 startActivity(intent);
             }
         });
