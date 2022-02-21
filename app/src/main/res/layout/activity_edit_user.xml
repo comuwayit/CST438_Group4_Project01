@@ -10,22 +10,36 @@
         android:id="@+id/textInputLayout3"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/userNameButton"
-        app:layout_constraintStart_toStartOf="@+id/userNameButton"
-        tools:layout_editor_absoluteY="187dp">
+        app:layout_constraintBottom_toBottomOf="@+id/userNameText"
+        app:layout_constraintEnd_toEndOf="@+id/userNameText"
+        app:layout_constraintStart_toStartOf="@+id/userNameText"
+        app:layout_constraintTop_toTopOf="@+id/userNameText">
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/userNameButton"
+        android:id="@+id/userNameText"
         android:layout_width="361dp"
         android:layout_height="55dp"
-        android:hint="username to delete"
+        android:hint="@string/username_to_delete"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.25" />
+
+    <Button
+        android:id="@+id/confirmDeletionBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm Deletion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+        app:layout_constraintVertical_bias="0.28" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
