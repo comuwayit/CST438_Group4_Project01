@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.daclink.drew.sp22.cst438_project01_starter.AppDataBase;
 import com.daclink.drew.sp22.cst438_project01_starter.User;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WishlistActivity extends AppCompatActivity {
-    public static final String USER_ID_KEY = "com.daclink.drew.sp22.cst438_project01_starter.USER_ID_KEY";
+    public static final String EXTRA_USER_ID = "com.daclink.drew.sp22.cst438_project01_starter.EXTRA_USER_ID";
 
     private User mUser;
     private int mUserId;
@@ -32,6 +33,8 @@ public class WishlistActivity extends AppCompatActivity {
 
     private List<Book> books;
     private UserDAO bookDao;
+
+    private int userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +52,10 @@ public class WishlistActivity extends AppCompatActivity {
                 .build()
                 .getDao();
 
-           //Intent stuff branch
-//         mUserId = getIntent().getIntExtra(USER_ID_KEY, -1);
-//         mUser = bookDao.getUserbyUserId(mUserId);
+        books = bookDao.getAllBooks();
 
-
-//         Intent i = getIntent();
-
-//         Boolean isAdmin = i.getBooleanExtra(MainActivity.USER_ID_KEY, false);
-
-//         ArrayList<Book> bookList = new ArrayList<>();
-//         books = bookDao.getAllBooks();
+        Intent i = getIntent();
+        userID = i.getIntExtra(MainActivity.EXTRA_USER_ID, -10);
 
         refreshListView();
 
@@ -67,7 +63,7 @@ public class WishlistActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addBookToWishlist();
-                refreshListView();
+//                refreshListView();
             }
         });
     }
@@ -75,16 +71,22 @@ public class WishlistActivity extends AppCompatActivity {
     private void refreshListView() {
         ArrayList<Book> bookList = new ArrayList<>();
         for (Book b : books) {
-            bookList.add(b);
+            if (b.getUserId() == userID) {
+                bookList.add(b);
+            }
         }
-//        Book testBook = new Book("The Test Book", "Tester", 0);
-//        bookList.add(testBook);
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, bookList);
         wlistView.setAdapter(arrayAdapter);
     }
 
     private void addBookToWishlist() {
-        Book b = new Book(titleText.getText().toString(), authorText.getText().toString(), 0);
+        if (titleText.getText().toString().isEmpty() || authorText.getText().toString().isEmpty()) {
+            Toast.makeText(WishlistActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Book b = new Book(titleText.getText().toString(), authorText.getText().toString(), userID);
         bookDao.insert(b);
+        finish();
+        startActivity(getIntent());
     }
 }

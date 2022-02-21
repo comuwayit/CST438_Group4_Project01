@@ -14,7 +14,8 @@ import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public static final String USER_ID_KEY = "com.daclink.drew.sp22.cst438_project01_starter.EXTRA_IS_ADMIN";
+    public static final String EXTRA_IS_ADMIN = "com.daclink.drew.sp22.cst438_project01_starter.EXTRA_IS_ADMIN";
+    public static final String EXTRA_USER_ID = "com.daclink.drew.sp22.cst438_project01_starter.EXTRA_USER_ID";
 
     private Button mLoginButton, mCreateAccountButton;
     private EditText mUserText, mPasswordText;
@@ -74,13 +75,15 @@ public class LoginActivity extends AppCompatActivity {
             if (mUserText.getText().toString().equals(adminUsername) && mPasswordText.getText().toString().equals(adminPassword)) {
                 Toast.makeText(LoginActivity.this, "Admin mode entered", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra(USER_ID_KEY, true);
+                intent.putExtra(EXTRA_IS_ADMIN, true);
+                intent.putExtra(EXTRA_USER_ID, -1);
                 startActivity(intent);
                 return;
             }
             else if (mUserText.getText().toString().equals(u.getUsername()) && mPasswordText.getText().toString().equals(u.getPassword())) {
                 Toast.makeText(LoginActivity.this, "Welcome back " + u.getUsername(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra(EXTRA_USER_ID, u.getUserId());
                 startActivity(intent);
                 return;
             }
