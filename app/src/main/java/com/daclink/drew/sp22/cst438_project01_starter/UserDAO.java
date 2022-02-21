@@ -46,4 +46,8 @@ public interface UserDAO {
 
     @Query("SELECT * FROM " + AppDataBase.BOOK_TABLE + " WHERE idNumber = :idNum")
     Book getBookbyBookId(int idNum);
+
+    @Query(" SELECT * FROM " + AppDataBase.BOOK_TABLE + " WHERE mUserId = :userID")
+    List<Book> getAllBooksbyUserId(int userID);
+
 }
